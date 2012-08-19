@@ -1,2 +1,2 @@
 print "hello git!"
-print "test"
+print "test ssh"
