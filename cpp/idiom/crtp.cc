@@ -1,7 +1,9 @@
 // http://en.wikibooks.org/wiki/More_C%2B%2B_Idioms/Curiously_Recurring_Template_Pattern
 // CRTP idiom: Curiously Recurring Template Pattern
 // 
-#include <stdio.h>
+// clang -cc1 -fdump-record-layouts crtp.cc
+// clang -cc1 -ast-dump crtp.cc
+#include <cstdio>
 
 template <class Derived>
 struct base {
@@ -30,10 +32,11 @@ struct derived_2 : base<derived_2> {
 		printf("derived_2 implementation()\n");
 	}
 };
-
 int main(int argc, char **argv) {
 	derived_1::static_interface();
-	derived_2 d2;
+	derived_2 d2;  
 	d2.interface();
+        
+	//return sizeof(derived_1);
 	return 0;
 }
