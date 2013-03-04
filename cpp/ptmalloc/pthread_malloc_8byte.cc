@@ -15,7 +15,8 @@ void* test(void*) {
 
 int main(int argc, char* argv[]) {
   pthread_t tid;
-  if(pthread_create(&tid, NULL, test, NULL) != 0){
+  int ret = pthread_create(&tid, NULL, test, NULL);
+  if(ret != 0){
     printf("pthread_create error!\n");
   }    
   while(true) {
