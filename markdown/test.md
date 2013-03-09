@@ -59,10 +59,13 @@ if __name__ == '__main__':
 
 # References
 >http://github.github.com/github-flavored-markdown/sample_content.html
+>
 >http://daringfireball.net/projects/markdown/syntax
+>
 >http://www.stack.nl/~dimitri/doxygen/manual/markdown.html
 
 >http://www.network-science.de/ascii/
+>
 >http://patorjk.com/software/taag/#p=display&f=Bulbhead&t=Piano
 
 >[markdown](http://wowubuntu.com/markdown/ "markdown")
