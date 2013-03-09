@@ -1,7 +1,8 @@
 Markdowm Test
 ========
-Andy (erpingwu@gmail.com)  
-2013/03/09
+
+*Andy (erpingwu@gmail.com)*  
+*2013/03/09*  
 
 # 1. code
 ## 1.1. code and syntax highlight
@@ -28,27 +29,39 @@ if __name__ == '__main__':
 
 
 # 2. Others
+## 2.1. todo
 - [x] @mentions, #refs, [links](), **formatting**, and <del>tags</del> supported
 - [x] list syntax required (any unordered or ordered list supported)
 - [x] this is a complete item
 - [ ] this is an incomplete item
 
-# 3. References
+## 2.2. table
+
+| Left align | Right align | Center align |
+|:-----------|------------:|:------------:|
+| This       |        This |     This     |
+| column     |      column |    column    |
+| will       |        will |     will     |
+| be         |          be |      be      |
+| left       |       right |    center    |
+| aligned    |     aligned |   aligned    |
+
+# References
  
-## 3.1 Markdown  
+## Markdown  
 - [Markdown: Syntax](http://daringfireball.net/projects/markdown/syntax)
 - [markdown](http://wowubuntu.com/markdown/ "markdown")
 - [GitHub Flavored Markdown](https://help.github.com/articles/github-flavored-markdown)
 - [Doxygen Markdown support](http://www.stack.nl/~dimitri/doxygen/manual/markdown.html)
 
-## 3.2 Pandoc
+## Pandoc
 - [pandoc](http://johnmacfarlane.net/pandoc/)  
 > pandoc -o test.pdf test.md  
 > pandoc --toc -o test.pdf test.md  
 
-## 3.3 AsciiArt
-* [AsciiArt][1](http://www.network-science.de/ascii/)
-* [AsciiArt][2](http://patorjk.com/software/taag/#p=display&f=Bulbhead&t=Piano)
+## AsciiArt
+- [AsciiArt][1](http://www.network-science.de/ascii/)
+- [AsciiArt][2](http://patorjk.com/software/taag/#p=display&f=Bulbhead&t=Piano)
 
 <pre>
  ____  _  ____  _      ____ 
