@@ -10,7 +10,7 @@ Andy (erpingwu@gmail.com)
 
 ## 1.2 multiple line
 four-space indents
-
+```cpp
 	/* Create a new heap.  size is automatically rounded up to a multiple
 	   of the page size. */
 	
@@ -22,7 +22,7 @@ four-space indents
 	  char *p1, *p2;
 	  unsigned long ul;
 	  heap_info *h;
-
+```
 
 
 <pre>
