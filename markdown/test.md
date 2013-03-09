@@ -65,12 +65,9 @@ if __name__ == '__main__':
 >http://www.network-science.de/ascii/
 >http://patorjk.com/software/taag/#p=display&f=Bulbhead&t=Piano
 
-<pre>
-First Header  | Second Header
-------------- | -------------
-Content Cell  | Content Cell 
-Content Cell  | Content Cell 
-</pre>
+>[markdown](http://wowubuntu.com/markdown/ "markdown")
+>
+>[markdown][1](http://wowubuntu.com/markdown/ "markdown")
 
 <pre>
  ____  _  ____  _      ____ 
@@ -81,20 +78,9 @@ Content Cell  | Content Cell
 </pre>
           
 <pre>
- ___   _    __    _      ___
-| |_) | |  / /\  | |\ | / / \
-|_|   |_| /_/--\ |_| \| \_\_/
-</pre>
-<pre>
 (  _ \(_  _)  /__\  ( \( )(  _  )
  )___/ _)(_  /(__)\  )  (  )(_)(
 (__)  (____)(__)(__)(_)\_)(_____)
 </pre>
 
-<pre>
-      _)
- __ \  |  _` | __ \   _ \
- |   | | (   | |   | (   |
- .__/ _|\__,_|_|  _|\___/
-_|
-</pre>
+
