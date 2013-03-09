@@ -2,7 +2,7 @@ Markdowm Test
 ========
 Andy (erpingwu@gmail.com)
 <br/>2013/03/09
-&copy;
+
 
 # 1 code
 ## 1.1 single line
@@ -58,5 +58,43 @@ if __name__ == '__main__':
 - [ ] this is an incomplete item
 
 # References
->http://github.github.com/github-flavored-markdown/
+>http://github.github.com/github-flavored-markdown/sample_content.html
 >http://daringfireball.net/projects/markdown/syntax
+>http://www.stack.nl/~dimitri/doxygen/manual/markdown.html
+
+>http://www.network-science.de/ascii/
+>http://patorjk.com/software/taag/#p=display&f=Bulbhead&t=Piano
+
+<pre>
+First Header  | Second Header
+------------- | -------------
+Content Cell  | Content Cell 
+Content Cell  | Content Cell 
+</pre>
+
+<pre>
+ ____  _  ____  _      ____ 
+/  __\/ \/  _ \/ \  /|/  _ \
+|  \/|| || / \|| |\ ||| / \|
+|  __/| || |-||| | \||| \_/|
+\_/   \_/\_/ \|\_/  \|\____/
+</pre>
+          
+<pre>
+ ___   _    __    _      ___
+| |_) | |  / /\  | |\ | / / \
+|_|   |_| /_/--\ |_| \| \_\_/
+</pre>
+<pre>
+(  _ \(_  _)  /__\  ( \( )(  _  )
+ )___/ _)(_  /(__)\  )  (  )(_)(
+(__)  (____)(__)(__)(_)\_)(_____)
+</pre>
+
+<pre>
+      _)
+ __ \  |  _` | __ \   _ \
+ |   | | (   | |   | (   |
+ .__/ _|\__,_|_|  _|\___/
+_|
+</pre>
