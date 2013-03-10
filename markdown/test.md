@@ -6,7 +6,7 @@ Markdowm Test
 
 # 1. code
 ## 1.1. code and syntax highlight
-```cpp
+```{.cpp .numberLines}
 /* Create a new heap.  size is automatically rounded up to a multiple
    of the page size. */
 
