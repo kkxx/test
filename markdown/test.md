@@ -6,7 +6,7 @@ Markdowm Test
 
 # 1. code
 ## 1.1. code and syntax highlight
-```{.cpp .numberLines}
+~~~~ {.cpp .numberLines}
 /* Create a new heap.  size is automatically rounded up to a multiple
    of the page size. */
 
@@ -18,7 +18,7 @@ new_heap(size_t size, size_t top_pad)
   char *p1, *p2;
   unsigned long ul;
   heap_info *h;
-```
+~~~~
 
 
 ```python
