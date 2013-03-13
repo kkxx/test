@@ -12,8 +12,8 @@ boost::mutex tls_mutex;
 __thread pid_t tls_pid_t = -1;
 
 void set_tls_pid_t() {
-  // boost::mutex::scoped_lock scoped_lock(tls_mutex);
   tls_pid_t = pid_t(syscall(__NR_gettid));
+  boost::mutex::scoped_lock scoped_lock(tls_mutex);
   m[tls_pid_t] = tls_pid_t; 
 }
 
