@@ -1,2 +1,4 @@
-http://www.scala-sbt.org/release/docs/Getting-Started/Setup.html
-http://www.scala-sbt.org/release/docs/Getting-Started/Hello.html
+- <http://www.scala-sbt.org/release/docs/Getting-Started/Setup.html>
+- <http://www.scala-sbt.org/release/docs/Getting-Started/Hello.html>
+- <https://github.com/harrah/xsbt/wiki/Setup-Notes>
+- <https://github.com/github/gitignore>
