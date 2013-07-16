@@ -1,6 +1,8 @@
-- <http://www.scala-sbt.org/release/docs/Getting-Started/Setup.html>
-- <http://www.scala-sbt.org/release/docs/Getting-Started/Hello.html>
-- <https://github.com/harrah/xsbt/wiki/Setup-Notes>
-- <https://github.com/github/gitignore>
-- <https://github.com/github/gitignore/blob/master/Scala.gitignore>
-- <https://github.com/github/gitignore/blob/master/Global/Eclipse.gitignore>
+- scala-sbt
+  - <http://www.scala-sbt.org/release/docs/Getting-Started/Setup.html>
+  - <http://www.scala-sbt.org/release/docs/Getting-Started/Hello.html>
+  - <https://github.com/harrah/xsbt/wiki/Setup-Notes>
+  - <https://github.com/harrah/xsbt/wiki/Library-Management>
+- other
+  - <https://github.com/github/gitignore>
+  - <http://downloads.typesafe.com/scalaide-pack/3.0.1.vfinal-210-20130711/scala-SDK-3.0.1-vfinal-2.10-linux.gtk.x86_64.tar.gz>
