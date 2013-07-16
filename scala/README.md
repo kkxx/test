@@ -2,3 +2,5 @@
 - <http://www.scala-sbt.org/release/docs/Getting-Started/Hello.html>
 - <https://github.com/harrah/xsbt/wiki/Setup-Notes>
 - <https://github.com/github/gitignore>
+- <https://github.com/github/gitignore/blob/master/Scala.gitignore>
+- <https://github.com/github/gitignore/blob/master/Global/Eclipse.gitignore>
