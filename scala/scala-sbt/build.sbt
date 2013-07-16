@@ -33,3 +33,5 @@ ivyXML := <dependencies>
     <exclude module="slf4j-api-1.6.0"  />
     <exclude org="org.jboss.netty" />
   </dependencies>
+
+unmanagedBase <<= baseDirectory { base => base / "libs" }
