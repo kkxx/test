@@ -1,0 +1,11 @@
+*.pyc
+*.so
+*.a
+*.o
+*.out
+
+tags
+tags.idx
+/build/
+/cb/
+/nbproject/
