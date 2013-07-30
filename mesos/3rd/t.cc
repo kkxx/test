@@ -26,19 +26,38 @@
 
 #include <gmock/gmock.h>
 #include <gtest/gtest.h>
+// #include <gflags/gflags.h>
 
-using namespace process;
 using namespace std;
+using namespace google;
+using namespace process;
+
 
 class MyProcess : public Process<MyProcess> {
 public:
   MyProcess() {}
   virtual ~MyProcess() {}
+  
+  void func2(int i) {
+    VLOG(2) << "func2 in " << this->self();
+    google::FlushLogFiles(google::GLOG_INFO);
+    promise.set(i);
+  }
+private:
+  Promise<int> promise;
 };
 
-int main(int argc, char** argv) {
+int main(int argc, char** argv) {    
+  google::InitGoogleLogging(argv[0]);
+  google::SetLogDestination(google::INFO,"./log/");
+  // export GLOG_v=2
+  // VLOG(2) << "VLOG(2) test";
   MyProcess process;
   PID<MyProcess> pid = spawn(&process);
+  dispatch(pid, &MyProcess::func2, 42);
+  LOG(INFO) << process.self();
+  // VLOG(2) << process.self();
+  google::FlushLogFiles(google::GLOG_INFO);
   wait(pid);
   return 0;
 }

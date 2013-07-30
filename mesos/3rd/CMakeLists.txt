@@ -7,6 +7,7 @@ add_executable( ${PROJECT_NAME} ${PRJ_SRCS})
 set(link_libs
   :libprocess.a
   :libev.a  
+  #:libgflags.a
   :libglog.a
   :libgmock.a
   :libgtest.a  
