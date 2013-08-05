@@ -91,7 +91,7 @@ SET(EXECUTABLE_OUTPUT_PATH  "..")
 SET(LIBRARY_OUTPUT_PATH "../../lib")
 
 # -- SUBDIR
-ADD_SUBDIRECTORY(3rd)
+ADD_SUBDIRECTORY(test)
 
 #execute_process(COMMAND dir RESULT_VARIABLE rv)
 #message("rv='${rv}'")

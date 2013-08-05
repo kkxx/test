@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8)
-PROJECT (test)
+PROJECT (t)
 #SET(EXECUTABLE_OUTPUT_PATH  "../../")
 message(STATUS "src = ${CMAKE_CURRENT_SOURCE_DIR}")
 aux_source_directory(${CMAKE_CURRENT_SOURCE_DIR} PRJ_SRCS)
