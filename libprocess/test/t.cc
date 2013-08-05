@@ -35,7 +35,7 @@ using namespace process;
 
 class MyProcess : public Process<MyProcess> {
 public:
-  MyProcess() {}
+  MyProcess() : ProcessBase("__MyProcess__")  {}
   virtual ~MyProcess() {}
   
   void func2(int i) {
@@ -52,13 +52,19 @@ int main(int argc, char** argv) {
   google::SetLogDestination(google::INFO,"./log/");
   // export GLOG_v=2
   // VLOG(2) << "VLOG(2) test";
-  LOG(INFO) << " --- main --- ";
   MyProcess process;
-  PID<MyProcess> pid = spawn(&process);
-  dispatch(pid, &MyProcess::func2, 42);
-  LOG(INFO) << process.self();
-  // VLOG(2) << process.self();
-  google::FlushLogFiles(google::GLOG_INFO);
-  wait(pid);
+  
+//  
+//  PID<MyProcess> pid = spawn(&process);
+//  dispatch(pid, &MyProcess::func2, 42);
+//  LOG(INFO) << process.self();
+//  // VLOG(2) << process.self();
+//  google::FlushLogFiles(google::GLOG_INFO);
+//  wait(pid);
+  
+  spawn(process);
+  terminate(process);
+  wait(process);
+  
   return 0;
 }
