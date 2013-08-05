@@ -52,6 +52,7 @@ int main(int argc, char** argv) {
   google::SetLogDestination(google::INFO,"./log/");
   // export GLOG_v=2
   // VLOG(2) << "VLOG(2) test";
+  LOG(INFO) << " --- main --- ";
   MyProcess process;
   PID<MyProcess> pid = spawn(&process);
   dispatch(pid, &MyProcess::func2, 42);
