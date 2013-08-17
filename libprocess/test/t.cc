@@ -55,16 +55,16 @@ int main(int argc, char** argv) {
   MyProcess process;
   
 //  
-//  PID<MyProcess> pid = spawn(&process);
-//  dispatch(pid, &MyProcess::func2, 42);
-//  LOG(INFO) << process.self();
-//  // VLOG(2) << process.self();
-//  google::FlushLogFiles(google::GLOG_INFO);
-//  wait(pid);
+  PID<MyProcess> pid = spawn(&process);
+  dispatch(pid, &MyProcess::func2, 42);
+  LOG(INFO) << process.self();
+  // VLOG(2) << process.self();
+  google::FlushLogFiles(google::GLOG_INFO);
+  wait(pid);
   
-  spawn(process);
-  terminate(process);
-  wait(process);
+//  spawn(process);
+//  terminate(process);
+//  wait(process);
   
   return 0;
 }
