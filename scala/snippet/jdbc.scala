@@ -27,6 +27,8 @@ def insert_iplib(begin_ip:String, end_ip:String, begin_int_ip:Long, end_int_ip:L
 		prep.setString(6, city);
 		prep.setString(7, czstr);
 		prep.executeUpdate
+	} catch {
+		case e: Exception => e.printStackTrace		
 	} finally {
 		conn.close
 	}
