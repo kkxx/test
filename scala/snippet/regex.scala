@@ -94,22 +94,38 @@ val ex_city_pattern = """(宁夏|西藏|新疆|广西|内蒙古)(.*?)(市|地区
 val city_area_pattern = """^(.*?)市(.*?)区|县.*""".r
 val city_pattern = "^(.*?)市$".r
 
+val isp_telecom_pattern = ".*(电信|联通|铁通).*".r
+
 for (line <- Source.fromFile("data/cz.txt", "utf-8").getLines().filter(_.trim() != "")) {
 	println(line)
   val a = line.trim().split(" ").filter(_.trim() != "")
   val (ip_begin, ip_end, address, comment) = (a(0), a(1), a(2), a(3))  
   println("%s=%d".format(ip_begin, NetUtil.ip2Long(ip_begin)))
   println("%s=%d".format(ip_end, NetUtil.ip2Long(ip_end)))
-  address match {    
-  	case university_pattern(university) => println("\t%s".format(university))
-    case province_city_pattern(province, city, city_title) => println("\t%s省.%s%s".format(province, city, city_title))
-    case province_pattern(province) => println("\t%s省".format(province))
-    case ex_province_pattern(province) => println("\t%s".format(province))    
-    case ex_city_pattern(province_short_name, city, city_title) =>
-      	println("\t%s.%s%s".format(province_short_name, city, city_title))
-    case city_area_pattern(city,area) => println("\t%s市".format(city))
-    case city_pattern(city) => println("\t%s市".format(city))
-    case _ => println("\t%s".format(address))
+  var is_internet_bar = false
+  if(comment.indexOf(new String("网吧"), 0) > 0)
+    is_internet_bar = true;
+  var isp = comment match {
+    case isp_telecom_pattern(isp) => isp
+    case _ => None
   }
-}
+  address match {    
+  	case university_pattern(university) => print("\t%s".format(university))
+    case province_city_pattern(province, city, city_title) => print("\t%s省.%s%s".format(province, city, city_title))
+    case province_pattern(province) => print("\t%s省".format(province))
+    case ex_province_pattern(province) => print("\t%s".format(province))    
+    case ex_city_pattern(province_short_name, city, city_title) =>
+      	print("\t%s.%s%s".format(province_short_name, city, city_title))
+    case city_area_pattern(city,area) => print("\t%s市".format(city))
+    case city_pattern(city) => print("\t%s市".format(city))
+    case _ => print("\t[%s]".format(address))
+  }
 
+  println("\t%s,%s".format(isp, 
+    is_internet_bar match {
+      case true => "网吧"
+      case _ => "-"
+    }
+    ))
+  
+}
