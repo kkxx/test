@@ -11,3 +11,7 @@
 - jdbc
     - [mysql-connector-java-5.1.6.jar](http://mirrors.ibiblio.org/pub/mirrors/maven2/mysql/mysql-connector-java/5.1.6/mysql-connector-java-5.1.6.jar)
     - scala -cp D:/ide/jars/mysql-connector-java-5.1.6.jar jdbc.scala
+    
+-- fsm
+    - https://github.com/ngocdaothanh/code-lock-fsm-akka/blob/master/src/main/scala/demo/CodeLock.scala
+    - https://github.com/ngocdaothanh/code-lock-fsm-akka/blob/master/src/main/scala/demo/Demo.scala
