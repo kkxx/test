@@ -16,6 +16,8 @@ scalacOptions += "-P:continuations:enable"
 // resolvers += "Typesafe Repository" at "http://repo.typesafe.com/typesafe/releases/"
 
 resolvers ++= Seq(
+  "oschina" at "http://maven.oschina.net/service/local/repositories/central/content",
+  "twitter" at "http://maven.twttr.com/",
   "Typesafe Repository" at "http://repo.typesafe.com/typesafe/releases/",
   "ScalaTools Snapshots nexus" at "http://nexus.scala-tools.org/content/repositories/snapshots",
   "repository.jboss.org" at "https://repository.jboss.org/nexus/content/repositories/releases/",
@@ -24,7 +26,7 @@ resolvers ++= Seq(
 )
 
 libraryDependencies ++= Seq(
-  "io.netty" % "netty" % "3.6.6.Final"
+  "com.twitter" %% "twitter-server" % "1.0.3"
 )
 
 ivyXML := <dependencies>
