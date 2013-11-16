@@ -9,3 +9,7 @@ tags.idx
 /build/
 /cb/
 /nbproject/
+
+*.iml
+.idea/
+target/
