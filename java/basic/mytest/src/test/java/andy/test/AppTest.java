@@ -46,4 +46,5 @@ public class AppTest
     assertEquals("default", App.getString("").or("default"));
     assertFalse(Objects.equal("default", App.getString("")));
   }
+
 }
