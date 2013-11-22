@@ -9,10 +9,9 @@ curl -D - http://localhost:9990/admin/metrics.json?pretty=true
 java -jar target\ts-1.0-SNAPSHOT-jar-with-dependencies.jar -help
 java -jar target\ts-1.0-SNAPSHOT-jar-with-dependencies.jar -admin.port=:8080
 
-mvn exec:java -Dexec.mainClass=andy.AdvancedServer -Dexec.arguments="-help"
-mvn exec:java -Dexec.mainClass=andy.AdvancedServer -Dexec.arguments="-admin.port=:8080"
 mvn exec:java -Dexec.mainClass=andy.AdvancedServer -Dexec.arguments="-admin.port=:8080,-what='*',-log.output=log/server.log"
 
 
 mvn compile -P development
 mvn compile -P development exec:java -Dexec.mainClass=andy.AdvancedServer
+curl -D - http://localhost:9990/echo/

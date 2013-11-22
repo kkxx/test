@@ -29,8 +29,8 @@ object AdvancedServer extends TwitterServer {
   val service = new Service[HttpRequest, HttpResponse] {
     def apply(request: HttpRequest) = {
       //#log_usage
-      log.debug("Received a request at " + Time.now)
-      logger.debug("logback test")
+      // log.debug("Received a request at " + Time.now)
+      logger.debug("Received a request at " + Time.now)
       //#log_usage
       //#stats_usage
       counter.incr()
