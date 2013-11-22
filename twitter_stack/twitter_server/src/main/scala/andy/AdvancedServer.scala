@@ -10,8 +10,11 @@ import org.jboss.netty.buffer.ChannelBuffers.copiedBuffer
 import org.jboss.netty.handler.codec.http._
 import org.jboss.netty.util.CharsetUtil.UTF_8
 
-object AdvancedServer extends TwitterServer {
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
+object AdvancedServer extends TwitterServer {
+  final val logger = LoggerFactory.getLogger("AdvancedServer")
   //#flag
   val what = flag("what", "hello, andy", "String to return")
   //#flag
@@ -27,6 +30,7 @@ object AdvancedServer extends TwitterServer {
     def apply(request: HttpRequest) = {
       //#log_usage
       log.debug("Received a request at " + Time.now)
+      logger.debug("logback test")
       //#log_usage
       //#stats_usage
       counter.incr()
