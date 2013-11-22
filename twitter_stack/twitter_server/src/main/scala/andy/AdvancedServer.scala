@@ -9,12 +9,14 @@ import java.net.InetSocketAddress
 import org.jboss.netty.buffer.ChannelBuffers.copiedBuffer
 import org.jboss.netty.handler.codec.http._
 import org.jboss.netty.util.CharsetUtil.UTF_8
-
+import com.twitter.finagle.tracing._
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 object AdvancedServer extends TwitterServer {
+
   final val logger = LoggerFactory.getLogger("AdvancedServer")
+  val flags = Flags().setDebug
   //#flag
   val what = flag("what", "hello, andy", "String to return")
   //#flag
@@ -28,6 +30,13 @@ object AdvancedServer extends TwitterServer {
 
   val service = new Service[HttpRequest, HttpResponse] {
     def apply(request: HttpRequest) = {
+      val traceId = TraceId(Some(SpanId(1)), Some(SpanId(2)), SpanId(3), Some(true), flags)
+      // val traceId = Trace.id
+      logger.debug("request.getHeader(Header.TraceId) = %s".format(request.headers.get("TraceId")))
+      logger.debug(s"$traceId, %s, %s".format(traceId.traceId, traceId.spanId))
+      Trace.setId(traceId)
+      Trace.recordRpcname("serviceName", "rpcName")
+      Trace.record("************************")
       //#log_usage
       // log.debug("Received a request at " + Time.now)
       logger.debug("Received a request at " + Time.now)
@@ -44,6 +53,7 @@ object AdvancedServer extends TwitterServer {
   }
 
   def main() {
+    Trace.enable()
     // We can create a new http server but in that case we profit from the
     // one already started for /admin/*
     // The `TwitterServer` trait exposes a `adminHttpServer` that serve all routes
