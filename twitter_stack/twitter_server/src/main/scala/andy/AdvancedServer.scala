@@ -17,7 +17,7 @@ object AdvancedServer extends TwitterServer {
   //#flag
   //#complex_flag
   val addr = flag("bind", new InetSocketAddress(0), "Bind address")
-  //val durations = flag("alarms", (1.second, 5.second), "2 alarm durations")
+  // val durations = flag("alarms", (1.second, 5.second), "2 alarm durations")
   //#complex_flag
   //#stats
   val counter = statsReceiver.counter("requests_counter")
@@ -42,7 +42,7 @@ object AdvancedServer extends TwitterServer {
   def main() {
     // We can create a new http server but in that case we profit from the
     // one already started for /admin/*
-    // The `TwitterServer` trait exposes a `httpServer` that serve all routes
+    // The `TwitterServer` trait exposes a `adminHttpServer` that serve all routes
     // registered in the HttpMuxer object, we just have to add our own.
     //#registering_http_service
     HttpMuxer.addHandler("/echo", service)

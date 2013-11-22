@@ -101,7 +101,8 @@
         <configuration>
           <archive>
             <manifest>
-              <mainClass>andy.BasicServer</mainClass>
+              <!--<mainClass>andy.BasicServer</mainClass>-->
+              <mainClass>andy.AdvancedServer</mainClass>
             </manifest>
           </archive>
           <descriptorRefs>
