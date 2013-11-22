@@ -15,17 +15,19 @@
   
   <repositories>
     <repository>
-      <id>repo.typesafe.com</id>
-      <name>repo.typesafe.com</name>
-      <url>http://repo.typesafe.com/typesafe/simple/twitter-cache</url>
-      <layout>default</layout>
-    </repository>
-    <repository>
       <id>oschina</id>
       <name>maven.oschina.net</name>
       <url>http://maven.oschina.net/content/groups/public/</url>
+      <layout>default</layout>
+    </repository>
+    
+    <repository>
+      <id>repo.typesafe.com</id>
+      <name>repo.typesafe.com</name>
+      <url>http://repo.typesafe.com/typesafe/simple/twitter-cache</url>
       
     </repository>
+    
     <repository>
       <id>central</id>
       <name>Central Maven Repository</name>
