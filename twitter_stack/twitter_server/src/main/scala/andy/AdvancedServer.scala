@@ -2,7 +2,10 @@ package andy
 
 import com.twitter.finagle.http.HttpMuxer
 import com.twitter.finagle.{Http, Service}
+import org.jboss.netty.handler.codec.http._
+import com.twitter.finagle.http.Http
 import com.twitter.server.TwitterServer
+import com.twitter.finagle.builder.{ClientBuilder, ServerBuilder, Server}
 import com.twitter.finagle.{HttpServer, ListeningServer, NullServer}
 import com.twitter.util.{Await, Duration, Future, Time}
 import java.net.InetSocketAddress
@@ -11,10 +14,11 @@ import org.jboss.netty.handler.codec.http._
 import org.jboss.netty.util.CharsetUtil.UTF_8
 import com.twitter.finagle.tracing._
 import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.slf4j.LoggerFactory
+import com.twitter.finagle.zipkin.thrift.ZipkinTracer
+;
 
 object AdvancedServer extends TwitterServer {
-
   final val logger = LoggerFactory.getLogger("AdvancedServer")
   val flags = Flags().setDebug
   //#flag
@@ -30,20 +34,10 @@ object AdvancedServer extends TwitterServer {
 
   val service = new Service[HttpRequest, HttpResponse] {
     def apply(request: HttpRequest) = {
-      val traceId = TraceId(Some(SpanId(1)), Some(SpanId(2)), SpanId(3), Some(true), flags)
-      // val traceId = Trace.id
-      logger.debug("request.getHeader(Header.TraceId) = %s".format(request.headers.get("TraceId")))
-      logger.debug(s"$traceId, %s, %s".format(traceId.traceId, traceId.spanId))
-      Trace.setId(traceId)
-      Trace.recordRpcname("serviceName", "rpcName")
-      Trace.record("************************")
-      //#log_usage
-      // log.debug("Received a request at " + Time.now)
+      //Trace.pushTracer(ZipkinTracer.mk(host = "172.19.108.98", port = 9410, sampleRate = 1.0f))
+      Trace.record("httpServer")
       logger.debug("Received a request at " + Time.now)
-      //#log_usage
-      //#stats_usage
       counter.incr()
-      //#stats_usage
       val response =
         new DefaultHttpResponse(request.getProtocolVersion, HttpResponseStatus.OK)
       val content = copiedBuffer(what() + "\n", UTF_8)
@@ -53,16 +47,17 @@ object AdvancedServer extends TwitterServer {
   }
 
   def main() {
-    Trace.enable()
-    // We can create a new http server but in that case we profit from the
-    // one already started for /admin/*
-    // The `TwitterServer` trait exposes a `adminHttpServer` that serve all routes
-    // registered in the HttpMuxer object, we just have to add our own.
-    //#registering_http_service
     HttpMuxer.addHandler("/echo", service)
     HttpMuxer.addHandler("/echo/", service)
-    //#registering_http_service
-    // And wait on the server
+    adminHttpServer.named("httpServer")
+
     Await.ready(adminHttpServer)
+//    Trace.enable()
+//    val server: Server = ServerBuilder()
+//      .codec(com.twitter.finagle.http.Http())
+//      .bindTo(new InetSocketAddress(9991))
+//      .name("httpServer")
+//      .tracer(ZipkinTracer.mk(host = "172.19.108.98", port = 9410, sampleRate = 1.0f))
+//      .build(HttpMuxer)
   }
 }

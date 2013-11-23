@@ -122,7 +122,7 @@
           <archive>
             <manifest>
               <!--<mainClass>andy.BasicServer</mainClass>-->
-              <mainClass>andy.ThriftServer</mainClass>
+              <mainClass>andy.ThriftEndServer</mainClass>
             </manifest>
           </archive>
           <descriptorRefs>
@@ -146,12 +146,12 @@
         <artifactId>scrooge-maven-plugin</artifactId>
         <version>3.11.1</version>
         <configuration>
-          <thriftNamespaceMappings>
-            <thriftNamespaceMapping>
-              <from>com.twitter.demo</from>
-              <to>com.twitter.mydemo.renamed</to>
-            </thriftNamespaceMapping>
-          </thriftNamespaceMappings>
+          <!--<thriftNamespaceMappings>-->
+            <!--<thriftNamespaceMapping>-->
+              <!--<from>com.twitter.demo</from>-->
+              <!--<to>com.twitter.mydemo.renamed</to>-->
+            <!--</thriftNamespaceMapping>-->
+          <!--</thriftNamespaceMappings>-->
           <language>scala</language> <!-- default is scala, can also be java -->
           <thriftOpts>
             <!-- add other Scrooge command line options using thriftOpts -->
