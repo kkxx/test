@@ -1,0 +1,4 @@
+- [mesos](https://github.com/mesos/mesos)
+  - [3rdparty](https://github.com/3rdparty)
+    - [libprocess](https://github.com/3rdparty/libprocess)
+    - [stout](https://github.com/3rdparty/stout)
