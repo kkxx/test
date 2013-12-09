@@ -36,11 +36,14 @@ def test():
     print datetime.datetime.fromtimestamp(ts)
     print datetime.datetime.fromtimestamp(ts).strftime("%Y-%m-%d %H:%M:%S.%f")
     print datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S.%f");
+    
+    
         
     timestr = "2013-03-08 16:14:04.463000"
     t = time.strptime(timestr, "%Y-%m-%d %H:%M:%S.%f");
     #pprint.pprint(t)
     print time.mktime(t)
+    print time.mktime(time.strptime("2000-01-01 00:00:00", "%Y-%m-%d %H:%M:%S")
 
     today = datetime.date.today( )
     print "today = ", today
