@@ -29,10 +29,12 @@ ioloop.py
             if self._timeouts:
                 now = time.time()
                 while self._timeouts:
-                    if self._timeouts[0].callback is None: # 
+                    # remove_timeout 实际上是将 callback 置为 None，在这里 heappop
+                    if self._timeouts[0].callback is None: 
                         # the timeout was cancelled
                         heapq.heappop(self._timeouts)
-                    elif self._timeouts[0].deadline <= now:
+                    # 如果超时，heappop，所以不需要再自己 remove_timeout
+                    elif self._timeouts[0].deadline <= now: 
                         timeout = heapq.heappop(self._timeouts)
                         self._run_callback(timeout.callback)
                     else:
