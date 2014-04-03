@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd" >
+<log4j:configuration>
+  <appender name="stdout" class="org.apache.log4j.ConsoleAppender">
+    <layout class="org.apache.log4j.PatternLayout">
+      <param name="ConversionPattern" value="%d{ABSOLUTE}
+      %5p %c{1}:%L - %m%n"/>
+    </layout>
+  </appender>
+
+  <appender name="rlog" class="org.apache.log4j.DailyRollingFileAppender">
+    <param name="file" value="/data/logs/mondrian/sample.log"/>
+    <param name="append" value="true"/>
+    <param name="encoding" value="utf-8"/>
+    <layout class="org.apache.log4j.PatternLayout">
+      <param name="ConversionPattern" value="%d{ABSOLUTE} %5p %c{1}:%L - %m%n"/>
+    </layout>
+  </appender>
+  <!-- Add the following appender only if you're interested in logging SQL statements -->
+
+  <appender name="SQLLOG" class="org.apache.log4j.RollingFileAppender">
+    <param name="File" value="/data/logs/mondrian/sql.log"/>
+    <param name="Append" value="false"/>
+    <param name="MaxFileSize" value="500KB"/>
+    <param name="MaxBackupIndex" value="1"/>
+
+    <layout class="org.apache.log4j.PatternLayout">
+      <param name="ConversionPattern" value="%d %-5p [%c] %m%n"/>
+    </layout>
+  </appender>
+
+  <!-- Add the following appender only if you're interested in logging MDX statements -->
+
+  <appender name="MONDRIAN" class="org.apache.log4j.RollingFileAppender">
+    <param name="File" value="/data/logs/mondrian/mondrian.log"/>
+    <param name="Append" value="false"/>
+    <param name="MaxFileSize" value="500KB"/>
+    <param name="MaxBackupIndex" value="1"/>
+
+    <layout class="org.apache.log4j.PatternLayout">
+      <param name="ConversionPattern" value="%d %-5p [%c] %m%n"/>
+    </layout>
+  </appender>
+
+  <!-- and logs only to the SQLLOG -->
+  <category name="mondrian.sql">
+    <priority value="DEBUG"/>
+    <appender-ref ref="SQLLOG"/>
+  </category>
+
+  <!-- and logs only to the MONDRIAN -->
+  <category name="mondrian">
+    <priority value="INFO"/>
+    <appender-ref ref="MONDRIAN"/>
+  </category>
+
+  <root>
+    <priority value="DEBUG"></priority>
+    <appender-ref ref="stdout"/>
+    <appender-ref ref="rlog"/>
+  </root>
+
+</log4j:configuration>

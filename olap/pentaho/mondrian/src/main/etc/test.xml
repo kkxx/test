@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<Schema name="test">
+
+  <Dimension name="province_name">
+    <Hierarchy hasAll="true" primaryKey="id">
+      <Table name="nation"/>
+      <Level name="province_name" column="name" uniqueMembers="true"/>
+    </Hierarchy>
+  </Dimension>
+
+  <Dimension name="server_type">
+    <Hierarchy hasAll="true" primaryKey="serverid">
+      <Table name="servertype"/>
+      <Level name="server_type" column="type" uniqueMembers="true"/>
+    </Hierarchy>
+  </Dimension>
+
+  <Cube name="server">
+    <Table name="server"/>
+    <Dimension name="idc" foreignKey="idc_id">
+      <Hierarchy name="idc_hierarchy" hasAll="true" primaryKey="idc_id">
+        <Table name="idc"></Table>
+        <Level name="province" column="province" uniqueMembers="true"/>
+        <Level name="idc_name" column="name" uniqueMembers="true"/>
+        <Join leftKey="province" rightKey="id">
+          <table name = "idc" />
+          <table name = "nation" />
+        </Join>
+        <Level table="nation" name="province_name" uniqueMembers="false" column="name"/>
+        <!--<DimensionUsage name="province_name" source="province_name" foreignKey="province"/>-->
+      </Hierarchy>
+    </Dimension>
+    <DimensionUsage name="server_type" source="server_type" foreignKey="server_type"/>
+    <Measure name="server_id" column="server_id" aggregator="count"/>
+    <Measure name="os_version" column="os_version" aggregator="distinct-count"/>
+    <Measure name="os_version_id" column="os_version_id" aggregator="distinct-count"/>
+  </Cube>
+</Schema>

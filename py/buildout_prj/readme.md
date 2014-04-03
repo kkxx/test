@@ -1,44 +1,14 @@
-- buildout init
 ```
-E:\mydev\test\py\buildout_prj>bin\mytestpy.exe prj\main.py
+$ fab build
+... 
+$ fab test
+[localhost] local: bin/mytestpy prj/main.py
 2.4.1
-
-E:\mydev\test\py\buildout_prj>python prj\main.py
-3.0.1
-```
-
-- buildout.cfg
-```
-[buildout]
-index = http://pypi.douban.com/simple
-parts = mytest
-develop = .
-eggs = tornado
-
-find-links = 
-  http://download.zope.org/ppix
-
-versions = versions
-
-[versions]
-tornado = 2.4.1
-
-[mytest]
-recipe = zc.recipe.egg
-interpreter = mytestpy
-eggs = ${buildout:eggs}
+[localhost] local: python prj/main.py
+3.2
 
 ```
 
-- setup.py
-```
-from setuptools import setup, find_packages
-setup(
-    name = 'mytest',
-    package_dir = {'':'mytest'},
-    install_requires = ['setuptools'],
-)
-```
-
-
--  wget http://svn.zope.org/*checkout*/zc.buildout/trunk/bootstrap/bootstrap.py
+- http://maurits.vanrees.org/weblog/archive/2008/01/easily-creating-repeatable-buildouts
+- http://jacobian.org/writing/django-apps-with-buildout/
+- http://stackoverflow.com/questions/5726289/buildout-using-different-python-version

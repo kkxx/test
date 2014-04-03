@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+  <database>
+    <Jdbc>jdbc:mysql://222.73.61.45:6208/cmdb?characterEncoding=utf-8&amp;useUnicode=true</Jdbc>
+    <JdbcUser>data.dev.ops</JdbcUser>
+    <JdbcPassword><![CDATA[k8,8ZYBMc.d]]></JdbcPassword>
+  </database>
+</config>

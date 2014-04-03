@@ -1,0 +1,11 @@
+select
+{
+  [Measures].[server_id],
+  [Measures].[os_version_id],
+  [Measures].[os_version]
+} ON 0,
+{
+  [idc].[province].[1013],
+  [idc].[province].[1014]
+} ON 1
+from [server]

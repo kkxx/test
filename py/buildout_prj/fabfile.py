@@ -10,5 +10,5 @@ def build():
     ''')
     
 def test():
-    local(r"bin\mytestpy prj\main.py")
-    local(r"python prj\main.py")
+    local(r"bin/mytestpy prj/main.py")
+    local(r"python prj/main.py")
