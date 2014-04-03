@@ -49,6 +49,7 @@ object AdvancedServer extends TwitterServer {
   def main() {
     HttpMuxer.addHandler("/echo", service)
     HttpMuxer.addHandler("/echo/", service)
+
     adminHttpServer.named("httpServer")
 
     Await.ready(adminHttpServer)

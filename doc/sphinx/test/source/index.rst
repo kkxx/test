@@ -41,6 +41,19 @@ Sphinx Demo
       html_theme = 'bootstrap'
       html_theme_path = sphinx_bootstrap_theme.get_html_theme_path()
 
+build
+------------------
+
+- **make.bat html**
+
+
+run
+------------------
+
+- **python -m SimpleHTTPServer 8000**
+- http://127.0.0.1:8000/html/
+  
+      
 图片
 ------------------
 .. image:: _static/sphinxheader.png
